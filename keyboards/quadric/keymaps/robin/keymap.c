@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * |------+------+------+------+------+------|------+------+------+------+------+------|
 	 * |LShift|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |RShift|
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
-	 * |LCtrl |      | Alt  | GUI  |Lower |Space |Space |Raise |Funct |      |      |RCtrl |
+	 * |LCtrl |      | Alt  | GUI  |Lower |  GUI |Space |Raise |Funct |      |      |RCtrl |
 	 * `-----------------------------------------------------------------------------------'
 	 */
 	[_DVORAK] = LAYOUT_ortho_5x12(
@@ -169,14 +169,20 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+    //writePinLow(B0);
 	switch (keycode) {
 		case QWERTY:
 			if (record->event.pressed) {
+                writePinHigh(B0);
+                writePinLow(D5);
 				persistent_default_layer_set(1UL<<_QWERTY);
 			}
 			break;
 		case DVORAK:
 			if (record->event.pressed) {
+                writePinLow(B0);
+                writePinHigh(D5);
 				persistent_default_layer_set(1UL<<_DVORAK);
 			}
 			break;
@@ -194,7 +200,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				layer_on(_RAISE);
 				update_tri_layer(_LOWER, _RAISE, _ADJUST);
 			} else {
-				layer_off(_RAISE);
+                layer_off(_RAISE);
 				update_tri_layer(_LOWER, _RAISE, _ADJUST);
 			}
 			break;
