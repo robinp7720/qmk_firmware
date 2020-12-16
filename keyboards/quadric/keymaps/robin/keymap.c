@@ -22,15 +22,12 @@ enum custom_keycodes {
 	LOWER,
 	RAISE,
 	FUNCTION,
-	ADJUST,
-};
+	ADJUST, }; // Fillers to make layering more clear
 
-// Fillers to make layering more clear
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { 
 
 	/* Dvorak
 	 * ,-----------------------------------------------------------------------------------.
@@ -42,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * |------+------+------+------+------+------|------+------+------+------+------+------|
 	 * |LShift|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |RShift|
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
-	 * |LCtrl |      | Alt  | GUI  |Lower |  GUI |Space |Raise |Funct |      |      |RCtrl |
+	 * |LCtrl |      | Alt  | GUI  |Lower |  GUI |Space |Raise |Funct |      | Print|RCtrl |
 	 * `-----------------------------------------------------------------------------------'
 	 */
 	[_DVORAK] = LAYOUT_ortho_5x12(
@@ -50,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 			KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC, \
 			KC_GESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH, \
 			KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    MT(MOD_RSFT, KC_ENT) , \
-			KC_LCTL, XXXXXXX, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   FUNCTION, XXXXXXX, XXXXXXX, KC_RCTL \
+			KC_LCTL, XXXXXXX, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   FUNCTION, XXXXXXX, KC_PSCR, KC_RCTL \
 			),
 
 	/* Qwerty
@@ -80,9 +77,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * |------+------+------+------+------+-------------+------+------+------+------+------|
 	 * |      |      |  Up  |      |      |      |      |      |      |      | Print| Del  |
 	 * |------+------+------+------+------+-------------+------+------+------+------+------|
-	 * |      | Left | Down | Right|      |      |      |      |      |      |      |      |
+	 * |      | Left | Down | Right|      |      |      |      |      |      | PgUp |      |
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
-	 * |      |      |      |      |      |      |VolUp |VolDow| Mute |      |      |      |
+	 * |      |      |      |      |      |      |VolUp |VolDow| Mute |      | PgDn |      |
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
 	 * |      |      |      |      |      |      |      |      |      |      |      |      |
 	 * `-----------------------------------------------------------------------------------'
@@ -90,8 +87,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_FUNCTION] = LAYOUT_ortho_5x12( \
 			KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
 			_______, XXXXXXX, KC_UP  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, KC_DEL, \
-			_______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
-			_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX, _______, \
+			_______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP, _______, \
+			_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, KC_PGDN, _______, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 			),
 
