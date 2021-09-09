@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * ,-----------------------------------------------------------------------------------.
 	 * |      | Reset|      |      |      |      |      |      |      |      |      |  Del |
 	 * |------+------+------+------+------+-------------+------+------+------+------+------|
-	 * |      |  ä   |  ö   |      |  ü   |      |      |Qwerty|      |Dvorak|      |  ß   |
+	 * |      |  ä   |  ö   |      |  ü   |      | NKRO |Qwerty|      |Dvorak|      |  ß   |
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
 	 * |      |      |      |      |      |      |      |      |      |      |      |      |
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 */
 	[_ADJUST] =  LAYOUT_ortho_4x12( \
 			XXXXXXX, RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL, \
-			XXXXXXX, UC(0xe4), UC(0xf6), XXXXXXX, UC(0xfc), XXXXXXX, XXXXXXX, QWERTY,  XXXXXXX, DVORAK,  UC(0xdf), XXXXXXX, \
+			XXXXXXX, UC(0xe4), UC(0xf6), XXXXXXX, UC(0xfc), XXXXXXX, NK_TOGG, QWERTY,  XXXXXXX, DVORAK,  UC(0xdf), XXXXXXX, \
 			XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 			)
