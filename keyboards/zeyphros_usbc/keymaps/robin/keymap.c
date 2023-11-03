@@ -12,9 +12,7 @@ extern keymap_config_t keymap_config;
 #define _LOWER 2
 #define _RAISE 3
 #define _FUNCTION 4
-#define _ADJUST 16
-
-
+#define _ADJUST 10
 
 enum custom_keycodes {
 	DVORAK = SAFE_RANGE,
@@ -22,14 +20,10 @@ enum custom_keycodes {
 	LOWER,
 	RAISE,
 	FUNCTION,
-	ADJUST
+	ADJUST,
 }; // Fillers to make layering more clear
 
-
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
-
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { 
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	/* Dvorak
 	 * ,-----------------------------------------------------------------------------------.
@@ -46,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 			KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,     KC_R,    KC_L,    KC_BSPC, \
 			KC_GESC, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,     KC_N,    KC_S,    KC_SLSH, \
 			KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,     KC_V,    KC_Z,    MT(MOD_RSFT, KC_ENT) , \
-			KC_LCTL, UC(0xc4), KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   FUNCTION, KC_RALT, KC_PSCR, KC_RCTL \
+			KC_LCTL, _______, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   FUNCTION, KC_RALT, KC_PSCR, KC_RCTL \
 			),
 
 	/* Qwerty
@@ -138,8 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 			XXXXXXX, UC(0xe4), UC(0xf6), XXXXXXX, UC(0xfc), XXXXXXX, NK_TOGG, QWERTY,  XXXXXXX, DVORAK,  UC(0xdf), XXXXXXX, \
 			XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
-			)
-
+			),
 
 };
 
