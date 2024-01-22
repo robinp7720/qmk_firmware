@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
-
-extern keymap_config_t keymap_config;
+#include "os_detection.h"
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -38,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 */
 	[_DVORAK] = LAYOUT_ortho_4x12(
 			KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,     KC_R,    KC_L,    KC_BSPC, \
-			KC_GESC, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,     KC_N,    KC_S,    KC_SLSH, \
-			KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,     KC_V,    KC_Z,    MT(MOD_RSFT, KC_ENT) , \
-			KC_LCTL, _______, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   FUNCTION, KC_RALT, KC_PSCR, KC_RCTL \
+			QK_GESC, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,     KC_N,    KC_S,    KC_SLSH, \
+			KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,     KC_V,    KC_Z,    RSFT_T(KC_ENT) , \
+			KC_LCTL, DB_TOGG, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   FUNCTION, KC_RALT, KC_PSCR, KC_RCTL \
 			),
 
 	/* Qwerty
@@ -63,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	/* FUNCTION
 	 * ,-----------------------------------------------------------------------------------.
-	 * |      |      |  Up  |      |      |      |      |      |      |      | Print| Del  |
+	 * |      |      |  Up  |      |      |      |      |      |      |      | Insrt| Del  |
 	 * |------+------+------+------+------+-------------+------+------+------+------+------|
 	 * |      | Left | Down | Right|      |      |      |      |      |      | PgUp |      |
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -73,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * `-----------------------------------------------------------------------------------'
 	 */
 	[_FUNCTION] = LAYOUT_ortho_4x12( \
-			_______, XXXXXXX, KC_UP  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, KC_DEL,  \
+			_______, XXXXXXX, KC_UP  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS , KC_DEL,  \
 			_______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP, _______, \
 			_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, KC_PGDN, _______, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
@@ -128,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * `-----------------------------------------------------------------------------------'
 	 */
 	[_ADJUST] =  LAYOUT_ortho_4x12( \
-			XXXXXXX, RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL, \
+			XXXXXXX, QK_BOOT,    XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL, \
 			XXXXXXX, UC(0xe4), UC(0xf6), XXXXXXX, UC(0xfc), XXXXXXX, NK_TOGG, QWERTY,  XXXXXXX, DVORAK,  UC(0xdf), XXXXXXX, \
 			XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \

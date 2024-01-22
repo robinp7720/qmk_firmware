@@ -18,12 +18,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef CONFIG_USER_H
-#define CONFIG_USER_H
+#pragma once
 
-#include "../../config.h"
+#define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
+#define EE_HANDS
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+#define HOLD_ON_OTHER_KEY_PRESS
+#define DEBUG_MATRIX_SCAN_RATE
 
-#define UNICODE_SELECTED_MODES UC_LNX
-//#define FORCE_NKRO
-
-#endif

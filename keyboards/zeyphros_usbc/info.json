@@ -1,7 +1,13 @@
 {
-  "keyboard_name": "Let's Split",
+  "keyboard_name": "idk",
+  "manufacturer": "robinp7720",
+  "usb": {
+    "vid": "0xFEED",
+    "pid": "0x3060",
+    "device_version": "0.0.1"
+  },
   "url": "",
-  "maintainer": "qmk",
+  "maintainer": "robinp7720",
   "width": 13,
   "height": 4,
   "layouts": {

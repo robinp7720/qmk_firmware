@@ -1,5 +1,4 @@
-ifndef QUANTUM_DIR
-	include ../../../../Makefile
-endif
-
 UNICODE_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+CONSOLE_ENABLE = yes
+OS_DETECTION_DEBUG_ENABLE = yes

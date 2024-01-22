@@ -16,14 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 #pragma once
-
-/* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x3060
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    robinp7720
-#define PRODUCT         idk
 
 /* key matrix size */
 // Rows are doubled-up
