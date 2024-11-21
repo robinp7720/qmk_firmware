@@ -20,6 +20,7 @@ enum custom_keycodes {
 	RAISE,
 	FUNCTION,
 	ADJUST,
+	IDK,
 }; // Fillers to make layering more clear
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -32,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * |------+------+------+------+------+------|------+------+------+------+------+------|
 	 * |LShift|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |RShift|
 	 * |------+------+------+------+------+------+------+------+------+------+------+------|
-	 * |LCtrl |      | Alt  | GUI  |Lower |  GUI |Space |Raise |Funct | ALT | Print|RCtrl |
+	 * |LCtrl |      | Alt  | GUI  |Lower |Space |Space |Raise |Funct | ALT | Print |RCtrl |
 	 * `-----------------------------------------------------------------------------------'
 	 */
 	[_DVORAK] = LAYOUT_ortho_4x12(
@@ -72,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 * `-----------------------------------------------------------------------------------'
 	 */
 	[_FUNCTION] = LAYOUT_ortho_4x12( \
-			_______, XXXXXXX, KC_UP  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS , KC_DEL,  \
+			CG_TOGG, XXXXXXX, KC_UP  , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS , KC_DEL,  \
 			_______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PGUP, _______, \
 			_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, KC_PGDN, _______, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
@@ -129,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_ADJUST] =  LAYOUT_ortho_4x12( \
 			XXXXXXX, QK_BOOT,    XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL, \
 			XXXXXXX, UC(0xe4), UC(0xf6), XXXXXXX, UC(0xfc), XXXXXXX, NK_TOGG, QWERTY,  XXXXXXX, DVORAK,  UC(0xdf), XXXXXXX, \
-			XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, \
+			XXXXXXX, IDK,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, \
 			_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 			),
 
@@ -183,6 +184,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				layer_on(_FUNCTION);
 			} else {
 				layer_off(_FUNCTION);
+			}
+			break;
+		case IDK:
+			if (record->event.pressed) {
+				SEND_STRING("k.A");
 			}
 			break;
 	}
