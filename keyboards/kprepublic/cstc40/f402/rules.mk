@@ -1,0 +1,3 @@
+BOOTLOADER = tinyuf2
+
+RGB_MATRIX_DRIVER = ws2812
